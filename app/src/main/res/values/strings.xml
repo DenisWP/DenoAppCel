@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">DenoAppCel</string>
+    <string name="app_name">Busca Preço</string>
+    <string name="txtSelecionar">Selecione a Loja</string>
+
+
+    <array name="Lojas">
+        <item>Matriz</item>
+        <item>Filial</item>
+        <item>Beira Rio</item>
+        <item>Material de Construção</item>
+        <item>Magazine</item>
+        <item>Cachoeira do Campo</item>
+    </array>
 </resources>

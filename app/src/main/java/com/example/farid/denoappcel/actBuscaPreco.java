@@ -40,6 +40,7 @@ public class actBuscaPreco extends AppCompatActivity {
         txtValor = (TextView) findViewById(R.id.txtValor);
         edtCodBarras = (EditText) findViewById(R.id.edtCodBarras);
         btnVoltar = (Button) findViewById(R.id.btnVoltar);
+        btnVoltar.setBackgroundResource(R.color.Cor);
 
         Bundle bundle = getIntent().getExtras();
         final String regiao = bundle.getString("region");

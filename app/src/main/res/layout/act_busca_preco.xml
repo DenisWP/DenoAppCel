@@ -1,72 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/txtCodProduto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:textSize="18sp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/txtDescProduto"
-        android:maxLines="2"
-        android:gravity="center"
-        android:textColor="#000000"
-        android:textStyle="bold"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="180dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/txtCodProduto"
-        android:layout_marginTop="21dp"
-        android:textSize="18sp" />
+        android:layout_marginTop="27dp"
+        android:gravity="center"
+        android:maxLines="3"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/txtSifrao"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        android:layout_alignTop="@+id/txtValor"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_toLeftOf="@+id/txtValor"
+        android:layout_toStartOf="@+id/txtValor"
         android:text="R$: "
-        android:textSize="10sp"
-        android:textStyle="bold"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="29dp"
-        android:layout_above="@+id/txtValor"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="50sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/txtValor"
-        android:gravity="center"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="130dp"
         android:layout_above="@+id/edtCodBarras"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="80sp" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="18dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="50sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnVoltar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Voltar"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="voltarInicio"/>
+        android:onClick="voltarInicio"
+        android:text="Voltar"
+        android:textColor="@android:color/white" />
 
     <EditText
         android:id="@+id/edtCodBarras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btnVoltar"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:ems="10"
         android:inputType="number"
-        android:hint="Código de Barras"/>
+        android:hint="Código de Barras"
+        android:gravity="center"
+        android:layout_above="@+id/btnVoltar"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_above="@+id/txtDescProduto"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        app:srcCompat="@mipmap/logo"
+        android:layout_toLeftOf="@+id/txtValor"
+        android:layout_toStartOf="@+id/txtValor" />
 </RelativeLayout>

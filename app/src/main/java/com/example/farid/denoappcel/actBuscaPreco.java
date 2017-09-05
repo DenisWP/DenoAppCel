@@ -17,8 +17,7 @@ import java.io.IOException;
 
 public class actBuscaPreco extends AppCompatActivity {
 
-    ImageView LogoFarid;
-    Button btnVoltar;
+    Button btnVoltar, btnLimpar;
     EditText edtCodBarras;
     TextView txtCodProd, txtDescProduto, txtSifrao, txtValor;
     String[] objetos = new String[3];
@@ -41,6 +40,8 @@ public class actBuscaPreco extends AppCompatActivity {
         edtCodBarras = (EditText) findViewById(R.id.edtCodBarras);
         btnVoltar = (Button) findViewById(R.id.btnVoltar);
         btnVoltar.setBackgroundResource(R.color.Cor);
+        btnLimpar = (Button) findViewById(R.id.btnLimpar);
+        btnLimpar.setBackgroundResource(R.color.Cor);
 
         Bundle bundle = getIntent().getExtras();
         final String regiao = bundle.getString("region");
@@ -83,6 +84,13 @@ public class actBuscaPreco extends AppCompatActivity {
     }
 
     public void limparDados() {
+        txtCodProd.setText("");
+        txtDescProduto.setText("");
+        txtValor.setText("");
+        txtSifrao.setVisibility(View.INVISIBLE);
+    }
+
+    public void limpar(View v) {
         txtCodProd.setText("");
         txtDescProduto.setText("");
         txtValor.setText("");

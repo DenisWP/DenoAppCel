@@ -44,18 +44,7 @@ public class actBuscaPreco extends AppCompatActivity {
         btnLimpar = (Button) findViewById(R.id.btnLimpar);
         btnLimpar.setBackgroundResource(R.color.Cor);
 
-        try {
-            ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-            if (cm.getActiveNetworkInfo() != null
-                    && cm.getActiveNetworkInfo().isAvailable()
-                    && cm.getActiveNetworkInfo().isConnected()){
-                Toast.makeText(getApplicationContext(), "Conectado", Toast.LENGTH_SHORT).show();
-            }else{
-                Toast.makeText(getApplicationContext(), "Conecte a rede da empresa", Toast.LENGTH_SHORT).show();
-            }
-        }catch(Exception e){
-            Toast.makeText(getApplicationContext(), "Ocorreu em erro", Toast.LENGTH_SHORT).show();
-        }
+
 
                 Bundle bundle = getIntent().getExtras();
                 final String regiao = bundle.getString("region");

@@ -29,6 +29,19 @@ public class actTelaInicial extends AppCompatActivity implements AdapterView.OnI
         adpLojas.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spnSupermercados.setAdapter(adpLojas);
         spnSupermercados.setOnItemSelectedListener(this);
+
+        try {
+            ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (cm.getActiveNetworkInfo() != null
+                    && cm.getActiveNetworkInfo().isAvailable()
+                    && cm.getActiveNetworkInfo().isConnected()){
+                Toast.makeText(getApplicationContext(), "Conectado", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(getApplicationContext(), "Conecte a rede da empresa", Toast.LENGTH_SHORT).show();
+            }
+        }catch(Exception e){
+            Toast.makeText(getApplicationContext(), "Ocorreu em erro", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

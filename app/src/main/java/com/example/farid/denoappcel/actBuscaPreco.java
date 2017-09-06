@@ -84,10 +84,11 @@ public class actBuscaPreco extends AppCompatActivity {
                     }
                 });
             }else{
-                Toast.makeText(getApplicationContext(), "Seu telefone não está conectado !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), " Seu telefone não está conectado ! \n" +
+                        "O aplicativo não irá funcionar ! ", Toast.LENGTH_SHORT).show();
             }
         }catch(Exception e){
-            Toast.makeText(getApplicationContext(), "Ocorreu em erro", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Erro", Toast.LENGTH_SHORT).show();
         }
 
 

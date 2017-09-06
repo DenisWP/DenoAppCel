@@ -5,18 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/txtCodProduto"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/imageView"
-        android:layout_marginTop="12dp"
-        android:textSize="20sp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        android:gravity="center"/>
 
     <TextView
         android:id="@+id/txtDescProduto"
@@ -31,6 +19,20 @@
         android:textColor="#000000"
         android:textSize="30dp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtCodProduto"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/imageView"
+        android:layout_marginTop="12dp"
+        android:textSize="20sp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
 
     <TextView
         android:id="@+id/txtSifrao"
@@ -52,7 +54,7 @@
         android:id="@+id/txtValor"
         android:layout_width="200dp"
         android:layout_height="80dp"
-        android:gravity="center"
+        android:gravity="left"
         android:textColor="#000000"
         android:textSize="50sp"
         android:textStyle="bold"

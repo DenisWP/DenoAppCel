@@ -37,7 +37,8 @@ public class actTelaInicial extends AppCompatActivity implements AdapterView.OnI
                     && cm.getActiveNetworkInfo().isConnected()){
                // Toast.makeText(getApplicationContext(), "Conectado", Toast.LENGTH_SHORT).show();
             }else{
-                Toast.makeText(getApplicationContext(), "Conecte a rede da empresa", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), " Atenção ! Sem conexão ! \n" +
+                        "Por favor, conecte a rede da FARID", Toast.LENGTH_SHORT).show();
             }
         }catch(Exception e){
             Toast.makeText(getApplicationContext(), "Ocorreu em erro", Toast.LENGTH_SHORT).show();

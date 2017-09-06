@@ -1,20 +1,21 @@
 package com.example.farid.denoappcel;
 
 import android.content.*;
+import android.net.ConnectivityManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class actTelaInicial extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Spinner spnSupermercados;
     TextView txtSelecionar;
-    //String region;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -5,6 +5,7 @@ package com.example.farid.denoappcel;
  */
 
 import android.content.*;
+import android.net.ConnectivityManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -43,40 +44,52 @@ public class actBuscaPreco extends AppCompatActivity {
         btnLimpar = (Button) findViewById(R.id.btnLimpar);
         btnLimpar.setBackgroundResource(R.color.Cor);
 
-        Bundle bundle = getIntent().getExtras();
-        final String regiao = bundle.getString("region");
+        try {
+            ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (cm.getActiveNetworkInfo() != null
+                    && cm.getActiveNetworkInfo().isAvailable()
+                    && cm.getActiveNetworkInfo().isConnected()){
+                Toast.makeText(getApplicationContext(), "Conectado", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(getApplicationContext(), "Conecte a rede da empresa", Toast.LENGTH_SHORT).show();
+            }
+        }catch(Exception e){
+            Toast.makeText(getApplicationContext(), "Ocorreu em erro", Toast.LENGTH_SHORT).show();
+        }
 
-        edtCodBarras.setFocusableInTouchMode(true);
-        edtCodBarras.requestFocus();
-        edtCodBarras.setOnKeyListener(new View.OnKeyListener() {
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    CB = edtCodBarras.getText().toString();
-                    url = "http://192.168.0.12:8001/api/Produtos?regiao=" +regiao+ "&codigobarra="+CB;
-                    edtCodBarras.setText("");
-                    new AsyncTaskExample().execute(url);
-                    /*Thred criada para apagar os campos após 5 segundos*/
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                Thread.sleep(6000);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                            runOnUiThread(new Runnable() {
+                Bundle bundle = getIntent().getExtras();
+                final String regiao = bundle.getString("region");
+                edtCodBarras.setFocusableInTouchMode(true);
+                edtCodBarras.requestFocus();
+                edtCodBarras.setOnKeyListener(new View.OnKeyListener() {
+                    public boolean onKey(View v, int keyCode, KeyEvent event) {
+                        if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                            CB = edtCodBarras.getText().toString();
+                            url = "http://192.168.0.12:8001/api/Produtos?regiao=" +regiao+ "&codigobarra="+CB;
+                            edtCodBarras.setText("");
+                            new AsyncTaskExample().execute(url);
+                            /*Thred criada para apagar os campos após 5 segundos*/
+                            new Thread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    limparDados();
+                                    try {
+                                        Thread.sleep(6000);
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            limparDados();
+                                        }
+                                    });
                                 }
-                            });
+                            }).start();
+                            return true;
                         }
-                    }).start();
-                    return true;
-                }
-                return false;
-            }
-        });
+                        return false;
+                    }
+                });
     }
 
     public void voltarInicio(View v) {
@@ -89,6 +102,7 @@ public class actBuscaPreco extends AppCompatActivity {
         txtValor.setText("");
         txtSifrao.setVisibility(View.INVISIBLE);
     }
+
 
     public void limpar(View v) {
         txtCodProd.setText("");

@@ -1,13 +1,14 @@
 package com.example.farid.denoappcel;
 
 import android.content.*;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckedTextView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,8 +26,7 @@ public class actTelaInicial extends AppCompatActivity implements AdapterView.OnI
         spnSupermercados = (Spinner) findViewById(R.id.spnLojas);
         txtSelecionar = (TextView) findViewById(R.id.txtSelecionar);
 
-
-        ArrayAdapter<CharSequence> adpLojas = ArrayAdapter.createFromResource(this, R.array.Lojas, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adpLojas = ArrayAdapter.createFromResource(this, R.array.Lojas, android.R.layout.simple_spinner_dropdown_item);
         adpLojas.setDropDownViewResource(R.layout.spinner_customizado);
         spnSupermercados.setAdapter(adpLojas);
         spnSupermercados.setOnItemSelectedListener(this);

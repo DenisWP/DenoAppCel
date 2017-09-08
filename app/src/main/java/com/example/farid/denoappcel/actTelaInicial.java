@@ -25,8 +25,9 @@ public class actTelaInicial extends AppCompatActivity implements AdapterView.OnI
         spnSupermercados = (Spinner) findViewById(R.id.spnLojas);
         txtSelecionar = (TextView) findViewById(R.id.txtSelecionar);
 
+
         ArrayAdapter<CharSequence> adpLojas = ArrayAdapter.createFromResource(this, R.array.Lojas, android.R.layout.simple_spinner_item);
-        adpLojas.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adpLojas.setDropDownViewResource(R.layout.spinner_customizado);
         spnSupermercados.setAdapter(adpLojas);
         spnSupermercados.setOnItemSelectedListener(this);
 
@@ -69,17 +70,17 @@ public class actTelaInicial extends AppCompatActivity implements AdapterView.OnI
                 startActivity(intent);
                 break;
             case 4:
-                intent = new Intent(actTelaInicial.this, actBuscaPreco.class);
+                intent = new Intent(this, actBuscaPreco.class);
                 intent.putExtra("region","4");
                 startActivity(intent);
                 break;
             case 5:
-                intent = new Intent(actTelaInicial.this, actBuscaPreco.class);
+                intent = new Intent(this, actBuscaPreco.class);
                 intent.putExtra("region","5");
                 startActivity(intent);
                 break;
             case 6:
-                intent = new Intent(actTelaInicial.this, actBuscaPreco.class);
+                intent = new Intent(this, actBuscaPreco.class);
                 intent.putExtra("region","6");
                 startActivity(intent);
                 break;

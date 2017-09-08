@@ -13,7 +13,7 @@
         android:layout_marginTop="13dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:popupBackground="#DEB887"/>
+        android:popupBackground="#4682B4"/>
 
     <TextView
         android:id="@+id/txtSelecionar"

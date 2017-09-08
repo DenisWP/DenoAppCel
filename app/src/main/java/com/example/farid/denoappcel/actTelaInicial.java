@@ -85,7 +85,6 @@ public class actTelaInicial extends AppCompatActivity implements AdapterView.OnI
                 startActivity(intent);
                 break;
         }
-
     }
 
     @Override

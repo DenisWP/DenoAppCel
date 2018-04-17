@@ -84,6 +84,11 @@ public class actTelaInicial extends AppCompatActivity implements AdapterView.OnI
                 intent.putExtra("region","6");
                 startActivity(intent);
                 break;
+            case 7:
+                intent = new Intent(this, actBuscaPreco.class);
+                intent.putExtra("region","7");
+                startActivity(intent);
+                break;
         }
     }
 

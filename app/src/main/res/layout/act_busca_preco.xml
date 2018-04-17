@@ -62,7 +62,7 @@
 
     <Button
         android:id="@+id/btnVoltar"
-        android:layout_width="150dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -75,13 +75,12 @@
         android:id="@+id/edtCodBarras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="Código de Barras"
-        android:gravity="center"
         android:layout_above="@+id/btnVoltar"
-        android:layout_alignLeft="@+id/imageView"
-        android:layout_alignStart="@+id/imageView" />
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Código de Barras"
+        android:inputType="number" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -93,7 +92,7 @@
 
     <Button
         android:id="@+id/btnLimpar"
-        android:layout_width="150dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
@@ -101,4 +100,14 @@
         android:onClick="limpar"
         android:text="Limpar"
         android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btnLeitor"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Leitor"
+        android:textColor="@android:color/white"/>
+
 </RelativeLayout>

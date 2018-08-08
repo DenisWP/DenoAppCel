@@ -1,9 +1,7 @@
 package com.example.farid.denoappcel;
-
 /**
  * Created by Farid on 04/09/2017.
  */
-
 import android.content.*;
 import android.net.ConnectivityManager;
 import android.support.v7.app.AppCompatActivity;

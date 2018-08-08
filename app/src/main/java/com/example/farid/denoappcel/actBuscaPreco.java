@@ -23,8 +23,6 @@ public class actBuscaPreco extends AppCompatActivity {
     String url, CB;
     JSONObject jsonObjectTexts;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

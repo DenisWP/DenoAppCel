@@ -75,21 +75,12 @@
         android:id="@+id/edtCodBarras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:ems="10"
-        android:inputType="number"
-        android:hint="Código de Barras"
         android:gravity="center"
-        android:layout_above="@+id/btnVoltar"
-        android:layout_alignLeft="@+id/imageView"
-        android:layout_alignStart="@+id/imageView" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="80dp"
-        app:srcCompat="@mipmap/logo"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:hint="Código de Barras"
+        android:inputType="number" />
 
     <Button
         android:id="@+id/btnLimpar"

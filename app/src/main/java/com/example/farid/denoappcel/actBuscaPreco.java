@@ -86,8 +86,6 @@ public class actBuscaPreco extends AppCompatActivity {
         }catch(Exception e){
             Toast.makeText(getApplicationContext(), "Erro", Toast.LENGTH_SHORT).show();
         }
-
-
     }
 
     public void voltarInicio(View v) {
@@ -100,7 +98,6 @@ public class actBuscaPreco extends AppCompatActivity {
         txtValor.setText("");
         txtSifrao.setVisibility(View.INVISIBLE);
     }
-
 
     public void limpar(View v) {
         txtCodProd.setText("");

@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Busca Preço</string>
     <string name="txtSelecionar">SELECIONE A LOJA: </string>
+    <string name="edtCodBarras">Código de Barras</string>
+    <string name="txtDescProduto">Descrição do Produto</string>
+    <string name="txtCodProduto">Código do Produto</string>
+    <string name="txtValor">Preço</string>
 
 
     <array name="Lojas">

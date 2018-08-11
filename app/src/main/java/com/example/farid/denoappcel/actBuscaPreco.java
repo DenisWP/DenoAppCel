@@ -28,6 +28,8 @@ public class actBuscaPreco extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide(); /*Retirando a barra de título do app*/
         setContentView(R.layout.act_busca_preco);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.icone_app);
 
         txtCodProd = (TextView) findViewById(R.id.txtCodProduto);
         txtDescProduto = (TextView) findViewById(R.id.txtDescProduto);

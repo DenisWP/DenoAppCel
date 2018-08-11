@@ -5,6 +5,10 @@
     <string name="txtDescProduto">Descrição do Produto</string>
     <string name="txtCodProduto">Código do Produto</string>
     <string name="txtValor">Preço</string>
+    <string name="btnLeitor">Scanner</string>
+    <string name="txtSifrao">R$: </string>
+    <string name="btnVoltar">Voltar</string>
+    <string name="btnLimpar">Limpar</string>
 
 
     <array name="Lojas">

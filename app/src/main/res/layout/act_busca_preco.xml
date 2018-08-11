@@ -16,22 +16,12 @@
 
     <Button
         android:id="@+id/btnLeitor"
-        android:layout_width="170dp"
+        android:layout_width="197dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="73dp"
-        android:text="Scannear" />
-
-    <Button
-        android:id="@+id/btnPesquisar"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/btnLeitor"
-        android:layout_marginEnd="21dp"
-        android:text="Pesquisar" />
+        android:layout_alignStart="@+id/txtCodProduto"
+        android:layout_marginTop="75dp"
+        android:text="@string/btnLeitor" />
 
     <TextView
         android:id="@+id/txtCodProduto"
@@ -56,7 +46,7 @@
         android:hint="@string/txtDescProduto"
         android:maxLines="3"
         android:textColor="#000000"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <TextView
@@ -67,8 +57,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="115dp"
         android:layout_marginStart="44dp"
-        android:gravity="right"
-        android:text="R$: "
+        android:gravity="end"
+        android:text="@string/txtSifrao"
         android:textColor="#000000"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -89,10 +79,11 @@
         android:id="@+id/btnVoltar"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/btnLeitor"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="46dp"
         android:onClick="voltarInicio"
-        android:text="Voltar"
+        android:text="@string/btnVoltar"
         android:textColor="@android:color/white" />
 
     <Button
@@ -100,9 +91,10 @@
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/btnPesquisar"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="82dp"
         android:onClick="limpar"
-        android:text="Limpar"
+        android:text="@string/btnLimpar"
         android:textColor="@android:color/white" />
 
 </RelativeLayout>

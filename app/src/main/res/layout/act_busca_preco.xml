@@ -21,7 +21,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/txtCodProduto"
         android:layout_marginTop="75dp"
-        android:text="@string/btnLeitor" />
+        android:text="@string/btnLeitor"
+        android:onClick="Scannear"/>
 
     <TextView
         android:id="@+id/txtCodProduto"

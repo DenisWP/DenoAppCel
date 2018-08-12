@@ -10,9 +10,14 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.*;
 import android.os.AsyncTask;
+
+import com.google.zxing.Result;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
+
+import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class actBuscaPreco extends AppCompatActivity {
 
@@ -22,6 +27,7 @@ public class actBuscaPreco extends AppCompatActivity {
     String[] objetos = new String[3];
     String url, CB;
     JSONObject jsonObjectTexts;
+    private ZXingScannerView ScannearCodigo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +114,23 @@ public class actBuscaPreco extends AppCompatActivity {
         txtSifrao.setVisibility(View.INVISIBLE);
     }
 
+    public void Scannear (View v){
+        ScannearCodigo = new ZXingScannerView(this);
+        ScannearCodigo.setResultHandler(new ZxingScanner());
+        setContentView(ScannearCodigo);
+        ScannearCodigo.startCamera();
+    }
+
+    public class  ZxingScanner implements ZXingScannerView.ResultHandler{
+        @Override
+        public void handleResult(Result result) {
+            String dados = result.getText();
+            setContentView(R.layout.act_busca_preco);
+            ScannearCodigo.stopCamera();
+            edtCodBarras.setText(dados);
+        }
+    }
+
     public class AsyncTaskExample extends AsyncTask<String, String, String[]> {
 
         @Override
@@ -139,4 +162,5 @@ public class actBuscaPreco extends AppCompatActivity {
             txtSifrao.setVisibility(View.VISIBLE);
         }
     }
+
 }

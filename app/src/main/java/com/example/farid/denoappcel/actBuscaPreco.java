@@ -92,7 +92,7 @@ public class actBuscaPreco extends AppCompatActivity {
                         "O aplicativo não irá funcionar ! ", Toast.LENGTH_SHORT).show();
             }
         }catch(Exception e){
-            Toast.makeText(getApplicationContext(), "Erro", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Ocorreu um erro interno, comunique ao Setor de TI", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -162,5 +162,4 @@ public class actBuscaPreco extends AppCompatActivity {
             txtSifrao.setVisibility(View.VISIBLE);
         }
     }
-
 }

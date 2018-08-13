@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.*;
 import android.os.AsyncTask;
 
@@ -21,9 +22,9 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class actBuscaPreco extends AppCompatActivity {
 
-    Button btnVoltar, btnLimpar;
+    Button btnVoltar, btnLimpar, btnLeitor;
     EditText edtCodBarras;
-    TextView txtCodProd, txtDescProduto, txtSifrao, txtValor;
+    TextView txtCodProd, txtDescProduto, txtSifrao, txtValor, txtCodBarras;
     String[] objetos = new String[3];
     String url, CB;
     JSONObject jsonObjectTexts;
@@ -47,6 +48,7 @@ public class actBuscaPreco extends AppCompatActivity {
         btnVoltar.setBackgroundResource(R.color.Cor);
         btnLimpar = (Button) findViewById(R.id.btnLimpar);
         btnLimpar.setBackgroundResource(R.color.Cor);
+        btnLeitor = (Button) findViewById(R.id.btnLeitor);
 
         try {
             ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -65,7 +67,7 @@ public class actBuscaPreco extends AppCompatActivity {
                             url = "http://192.168.0.12:8001/api/Produtos?regiao=" +regiao+ "&codigobarra="+CB;
                             edtCodBarras.setText("");
                             new AsyncTaskExample().execute(url);
-                            /*Thred criada para apagar os campos após 5 segundos*/
+
                             new Thread(new Runnable() {
                                 @Override
                                 public void run() {
@@ -102,6 +104,7 @@ public class actBuscaPreco extends AppCompatActivity {
 
     public void limparDados() {
         txtCodProd.setText("");
+        txtCodBarras.setText("");
         txtDescProduto.setText("");
         txtValor.setText("");
         txtSifrao.setVisibility(View.INVISIBLE);
@@ -123,11 +126,42 @@ public class actBuscaPreco extends AppCompatActivity {
 
     public class  ZxingScanner implements ZXingScannerView.ResultHandler{
         @Override
-        public void handleResult(Result result) {
-            String dados = result.getText();
+        public void handleResult(Result codigo) {
+            String dados = codigo.getText();
             setContentView(R.layout.act_busca_preco);
             ScannearCodigo.stopCamera();
-            edtCodBarras.setText(dados);
+
+            Bundle bundle = getIntent().getExtras();
+            final String regiao = bundle.getString("region");
+
+            txtCodProd = (TextView) findViewById(R.id.txtCodProduto);
+            txtDescProduto = (TextView) findViewById(R.id.txtDescProduto);
+            txtSifrao = (TextView) findViewById(R.id.txtSifrao);
+            txtSifrao.setVisibility(View.INVISIBLE);
+            txtValor = (TextView) findViewById(R.id.txtValor);
+
+            txtCodBarras = (TextView) findViewById(R.id.txtCodBarras);
+            txtCodBarras.setText(dados);
+
+            url = "http://192.168.0.12:8001/api/Produtos?regiao=" +regiao+ "&codigobarra="+dados;
+            new AsyncTaskExample().execute(url);
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(6000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            limparDados();
+                        }
+                    });
+                }
+            }).start();
         }
     }
 

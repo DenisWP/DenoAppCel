@@ -139,7 +139,6 @@ public class actBuscaPreco extends AppCompatActivity {
             txtSifrao = (TextView) findViewById(R.id.txtSifrao);
             txtSifrao.setVisibility(View.INVISIBLE);
             txtValor = (TextView) findViewById(R.id.txtValor);
-
             txtCodBarras = (TextView) findViewById(R.id.txtCodBarras);
             txtCodBarras.setText(dados);
 
